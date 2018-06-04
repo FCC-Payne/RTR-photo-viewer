@@ -19,10 +19,11 @@ exports.getEndpoints = (imageId, callback) => {
     if (err) {
       callback(err, null);
     } else {
-      callback(null, results);
+      let endpoints = [results[0].picOne, results[0].picTwo, results[0].picThree, results[0].picFour];
+      callback(null, endpoints);
     }
-    connection.end();
   });
+  connection.end();
 };
 
 exports.getPhotos = (endpoints, callback) => {
@@ -31,16 +32,13 @@ exports.getPhotos = (endpoints, callback) => {
       return new Promise((resolve, reject) => {
         s3.getObject({
           Bucket: 'fcc-payne-run-the-rentway',
-          key: endpoint
+          Key: endpoint
         }, (err, object) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(object);
-          }
+          resolve(object);
+          reject(err);
         });
       })
     }
   });
-  Prmoise.all(promises).then(photos => callback(null, photos)).catch(err => callback(err, null));
+  Promise.all(promises).then(photos => callback(null, photos)).catch(err => callback(err, null));
 };
