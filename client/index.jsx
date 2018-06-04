@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Thumbnails from './Thumbnails.jsx';
+import Featured from './Featured.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -9,21 +11,8 @@ class App extends React.Component {
   render() {
     return(
       <div className="product-images">
-        <div className="thumbnails">
-          <div className="thumb-controls thumb-prev"></div>
-          <div className="thumb-viewport">
-            <div className="product-thumbnails">
-              <div className="product-thumbnail">Thumbnail 1</div>
-              <div className="product-thumbnail">Thumbnail 2</div>
-              <div className="product-thumbnail">Thumbnail 3</div>
-              <div className="product-thumbnail">Thumbnail 4</div>
-            </div>
-          </div>
-          <div className="thumb-controls thumb-next"></div>
-        </div>
-        <div className="featured-image-wrapper">
-          <div className="featured-image-wrapper__center"></div>
-        </div>
+        <Thumbnails />
+        <Featured />
       </div>
     );
   }
