@@ -12,6 +12,7 @@ class App extends React.Component {
       featuredPhotoUrl: '',
     };
     this.getPhotoUrls = this.getPhotoUrls.bind(this);
+    this.changePhoto = this.changePhoto.bind(this);
   }
 
   getPhotoUrls(imageId) {
@@ -25,13 +26,19 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getPhotoUrls(126);
+    this.getPhotoUrls(105);
+  }
+
+  changePhoto(url) {
+    this.setState({
+      featuredPhotoUrl: url
+    });
   }
 
   render() {
     return(
       <div className="product-images">
-        <Thumbnails photos={this.state.photoUrls}/>
+        <Thumbnails changePhoto={this.changePhoto} photos={this.state.photoUrls}/>
         <Featured photo={this.state.featuredPhotoUrl}/>
       </div>
     );

@@ -1,0 +1,11 @@
+.product-images {
+  display: flex;
+}
+
+.product-thumbnail img {
+  margin: 1px;
+}
+
+.featured-image {
+  margin: 15px;
+}

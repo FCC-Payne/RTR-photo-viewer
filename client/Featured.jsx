@@ -3,7 +3,7 @@ import React from 'react';
 const Featured = (props) => (
   <div className="featured-image-wrapper">
     <div className="featured-image-wrapper__center">
-      <img src={props.photo} />
+      <img className="featured-image" width="280" src={props.photo} />
     </div>
   </div>
 );
