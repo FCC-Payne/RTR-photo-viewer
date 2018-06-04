@@ -9,13 +9,21 @@
   },
   "scripts": {
     "test": "jest",
-    "lint": "./node_modules/.bin/eslint ."
+    "lint": "./node_modules/.bin/eslint .",
+    "react-dev": "webpack -d --watch"
   },
   "dependencies": {
     "aws-sdk": "^2.250.1",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "express": "^4.16.3",
     "mysql": "^2.15.0",
-    "nodemon": "^1.17.5"
+    "nodemon": "^1.17.5",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^3.0.1"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
