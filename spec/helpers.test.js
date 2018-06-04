@@ -14,10 +14,10 @@ test('getEndpoints returns correct endpoints', done => {
 });
 
 test('getPhotos retrieves objects from S3 storage', done => {
-  function callback(err, results) {
+  function callback(err, data) {
     expect(err).toBeNull();
-    expect(results).toHaveLength(4);
-    expect(typeof results[0]).toBe('object');
+    expect(data).toHaveLength(4);
+    expect(typeof data[0]).toBe('object');
     done();
   }
 
