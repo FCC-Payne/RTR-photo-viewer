@@ -2,7 +2,7 @@ const mysql = require('mysql');
 const config = require('../config');
 const AWS = require('aws-sdk');
 
-const s3 = AWS.S3({
+const s3 = new AWS.S3({
   accessKeyId: config.awsAccessKey,
   secretAccessKey: config.awsSecretKey,
   region: 'us-west-1'
@@ -15,13 +15,13 @@ const connection = mysql.createConnection({
 });
 
 exports.getEndpoints = (imageId, callback) => {
-  connection.query(`SELECT * FROM photos WHERE id=${imageId};`, (err, results) => {
+  connection.query(`SELECT picOne, picTwo, picThree, picFour FROM photos WHERE id=${imageId};`, (err, results) => {
     if (err) {
       callback(err, null);
     } else {
-      let endpoints = [results.picOne, results.picTwo, results.picThree, results.picFour]
-      callback(null, endpoints);
+      callback(null, results);
     }
+    connection.end();
   });
 };
 
