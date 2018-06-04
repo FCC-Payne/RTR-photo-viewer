@@ -23,7 +23,6 @@ exports.getEndpoints = (imageId, callback) => {
       callback(null, endpoints);
     }
   });
-  connection.end();
 };
 
 exports.getPhotos = (endpoints, callback) => {

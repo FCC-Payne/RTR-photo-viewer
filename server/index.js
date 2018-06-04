@@ -3,7 +3,9 @@ const helpers = require('../database/helpers.js');
 
 const app = express();
 
-app.get('*', (req, res) => {
+app.use(express.static(__dirname + '/../public'));
+
+app.get('/*', (req, res) => {
   helpers.getEndpoints(req.path.slice(1), (err, data) => {
     if (err) {
       res.sendStatus(500);
@@ -19,4 +21,4 @@ app.get('*', (req, res) => {
   });
 });
 
-app.listen(3001);
+app.listen(3001, () => console.log('listening on 3001...'));
