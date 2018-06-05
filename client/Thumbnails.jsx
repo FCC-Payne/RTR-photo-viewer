@@ -4,7 +4,7 @@ import Thumbnail from './Thumbnail.jsx'
 const Thumbnails = (props) => (
   <div className="thumbnails">
     <div className="thumb-controls thumb-prev">
-      <span class="arrow"></span>
+      <img onClick={() => props.scroll('prev')} src="http://icons.iconarchive.com/icons/icons8/android/24/Arrows-Collapse-2-icon.png" />
     </div>
     <div className="thumb-viewport">
       <div className="product-thumbnails">
@@ -13,7 +13,7 @@ const Thumbnails = (props) => (
       </div>
     </div>
     <div className="thumb-controls thumb-next">
-      <span className="arrow"></span> 
+      <img onClick={() => props.scroll('next')} src="http://icons.iconarchive.com/icons/icons8/android/24/Arrows-Collapse-2-icon.png" />
     </div>
   </div>
 );

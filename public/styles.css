@@ -9,3 +9,16 @@
 .featured-image {
   margin: 15px;
 }
+
+.thumb-next {
+  transform: rotate(180deg);
+}
+
+.thumb-controls img {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.arrow {
+  font-size: 3em;
+}
