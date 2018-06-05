@@ -13,11 +13,11 @@ test('getEndpoints returns correct endpoints', done => {
   helpers.getEndpoints(100, callback);
 });
 
-test('getPhotos retrieves objects from S3 storage', done => {
+test('getPhotos retrieves pre-signed urls of photos from S3 storage', done => {
   function callback(err, data) {
     expect(err).toBeNull();
     expect(data).toHaveLength(4);
-    expect(typeof data[0]).toBe('object');
+    expect(typeof data[0]).toBe('string');
     done();
   }
 

@@ -23,14 +23,13 @@ exports.getEndpoints = (imageId, callback) => {
       callback(null, endpoints);
     }
   });
-  connection.end();
 };
 
 exports.getPhotos = (endpoints, callback) => {
   const promises = endpoints.map((endpoint) => {
     if (endpoint !== null) {
       return new Promise((resolve, reject) => {
-        s3.getObject({
+        s3.getSignedUrl('getObject', {
           Bucket: 'fcc-payne-run-the-rentway',
           Key: endpoint,
         }, (err, data) => {
