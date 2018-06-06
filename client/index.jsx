@@ -36,7 +36,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(`rendering App with ${this.state.photoUrls.length} photos`);
     return(
       <div className="product-images">
         <Thumbnails scroll={this.thumbnailScroll} changePhoto={this.changePhoto} photos={this.state.photoUrls} />
