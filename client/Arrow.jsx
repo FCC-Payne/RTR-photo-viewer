@@ -5,7 +5,7 @@ const Arrow = props => {
   !props.active ? divClassName += ' inactive' : null;
   return(
     <div className={divClassName}>
-      <span className="arrow" onClick={() => props.scroll(props.direction)}>∟</span>
+      <span className="arrow" onClick={() => props.scroll(props.direction)}></span>
     </div>
   );
 };

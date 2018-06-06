@@ -3,13 +3,15 @@
 }
 
 .product-thumbnail img{
-  margin: 4px;
   vertical-align: middle;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .thumb-controls {
-  margin-left: 4px;
-  margin-right: 4px;
+  padding: 20px;
+  height: 13px;
+  width: 45px;
 }
 
 .featured-image {
@@ -25,22 +27,20 @@
 }
 
 .arrow {
-  padding: 0px;
-  margin: 0px;
   display: inline-block;
   position: relative;
-  height: 40px;
-  width: 40px;
-  left: 25%;
-  font-size: 40px;
-  text-align: center;
-  line-height: 75%;
+  height: 12px;
+  width: 12px;
+  margin-left: 16px;
+  margin-right: 16px;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
 }
 
 .arrow:hover {
-  color: gray;
+  border-color: gray;
 }
 
-.inactive {
-  color: lightgray;
+.inactive .arrow {
+  border-color: lightgray;
 }
