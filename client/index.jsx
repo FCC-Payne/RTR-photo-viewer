@@ -26,7 +26,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getPhotoUrls(105);
+    this.getPhotoUrls(150);
   }
 
   changePhoto(url) {
