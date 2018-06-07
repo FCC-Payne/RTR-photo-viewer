@@ -4,23 +4,24 @@ class Featured extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      style: {
-        height: '720px',
-        objectFit: 'contain',
-      },
+      objectFit: 'contain',
+      objectPosition: '0% 0%',
       imgX: 0,
       imgY: 0,
       width: 0,
       height: 0,
+      zoom: 1080,
     };
     this.mouseEnter = this.mouseEnter.bind(this);
     this.mouseMove = this.mouseMove.bind(this);
     this.mouseLeave = this.mouseLeave.bind(this);
+    this.wheel = this.wheel.bind(this);
   }
 
   mouseEnter(event) {
     const rect = event.target.getClientRects();
     this.setState({
+      objectFit: 'none',
       imgX: rect[0].x,
       imgY: rect[0].y,
       width: rect[0].width,
@@ -30,28 +31,52 @@ class Featured extends React.Component {
 
   mouseMove(event) {
     this.setState({
-      style: {
-        height: '720px',
-        objectFit: 'none',
-        objectPosition: `${(event.clientX - this.state.imgX) * 100 / this.state.width}% ${(event.clientY - this.state.imgY) * 100 / this.state.height}%`,
-      },
+      objectPosition: `${(event.clientX - this.state.imgX) * 100 / this.state.width}% ${(event.clientY - this.state.imgY) * 100 / this.state.height}%`,
     });
   }
 
   mouseLeave(event) {
     this.setState({
-      style: {
-        height: '720px',
-        objectFit: 'contain',
-      },
+      objectFit: 'contain',
+      zoom: 1080,
     });
   }
 
+  wheel(event) {
+    event.preventDefault();
+    if (event.deltaY > 0 && this.state.zoom > 480) {
+      const newHeight = this.state.zoom - 20;
+      this.setState({
+        zoom: newHeight,
+      });
+    }
+    if (event.deltaY < 0 && this.state.zoom < 1080) {
+      const newHeight = this.state.zoom + 20;
+      this.setState({
+        zoom: newHeight,
+      });
+    }
+  }
+
   render() {
+    const style = {
+      height: '720px',
+      objectFit: this.state.objectFit,
+      objectPosition: this.state.objectPosition,
+    };
     return(
       <div className="featured-image-wrapper">
         <div className="featured-image-wrapper__center">
-          <img onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} onMouseMove={this.mouseMove} style={this.state.style} className="featured-image" src={this.props.photo} />
+          <img 
+            className="featured-image"
+            onMouseEnter={this.mouseEnter}
+            onMouseLeave={this.mouseLeave}
+            onMouseMove={this.mouseMove}
+            onWheel={this.wheel}
+            style={style}
+            srcSet={`${this.props.photo} 1080w`}
+            sizes={`${this.state.zoom}px`}
+          />
         </div>
       </div>
     );
