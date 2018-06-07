@@ -1,82 +1,45 @@
 import React from 'react';
+import FeaturedZoom from './FeaturedZoom.jsx';
+import FeaturedStatic from './FeaturedStatic.jsx';
 
 class Featured extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      objectFit: 'contain',
-      objectPosition: '0% 0%',
-      imgX: 0,
-      imgY: 0,
-      width: 0,
-      height: 0,
-      zoom: 1080,
+      zoomOpacity: 0,
+      zoomVisibility: 'hidden',
+      staticOpacity: 1,
+      staticVisibility: 'visible',
     };
-    this.mouseEnter = this.mouseEnter.bind(this);
-    this.mouseMove = this.mouseMove.bind(this);
-    this.mouseLeave = this.mouseLeave.bind(this);
-    this.wheel = this.wheel.bind(this);
+
+    this.showZoom = this.showZoom.bind(this);
+    this.hideZoom = this.hideZoom.bind(this);
   }
 
-  mouseEnter(event) {
-    const rect = event.target.getClientRects();
+  showZoom() {
     this.setState({
-      objectFit: 'none',
-      imgX: rect[0].x,
-      imgY: rect[0].y,
-      width: rect[0].width,
-      height: rect[0].height,
+      zoomOpacity: 1,
+      zoomVisibility: 'visible',
+      staticOpacity: 0,
+      staticVisibility: 'hidden',
     });
   }
 
-  mouseMove(event) {
+  hideZoom() {
     this.setState({
-      objectPosition: `${(event.clientX - this.state.imgX) * 100 / this.state.width}% ${(event.clientY - this.state.imgY) * 100 / this.state.height}%`,
+      zoomOpacity: 0,
+      zoomVisibility: 'hidden',
+      staticOpacity: 1,
+      staticVisibility: 'visible',
     });
-  }
-
-  mouseLeave(event) {
-    this.setState({
-      objectFit: 'contain',
-      zoom: 1080,
-    });
-  }
-
-  wheel(event) {
-    event.preventDefault();
-    if (event.deltaY > 0 && this.state.zoom > 480) {
-      const newHeight = this.state.zoom - 20;
-      this.setState({
-        zoom: newHeight,
-      });
-    }
-    if (event.deltaY < 0 && this.state.zoom < 1080) {
-      const newHeight = this.state.zoom + 20;
-      this.setState({
-        zoom: newHeight,
-      });
-    }
   }
 
   render() {
-    const style = {
-      height: '720px',
-      objectFit: this.state.objectFit,
-      objectPosition: this.state.objectPosition,
-    };
     return(
       <div className="featured-image-wrapper">
         <div className="featured-image-wrapper__center">
-          <img 
-            className="featured-image"
-            onMouseEnter={this.mouseEnter}
-            onMouseLeave={this.mouseLeave}
-            onMouseMove={this.mouseMove}
-            onWheel={this.wheel}
-            style={style}
-            srcSet={`${this.props.photo} 1080w`}
-            sizes={`${this.state.zoom}px`}
-          />
+          <FeaturedStatic hide={this.showZoom} photo={this.props.photo} visibility={this.state.staticVisibility} opacity={this.state.staticOpacity} />
+          <FeaturedZoom hide={this.hideZoom} photo={this.props.photo} visibility={this.state.zoomVisibility} opacity={this.state.zoomOpacity} />
         </div>
       </div>
     );

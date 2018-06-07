@@ -5,11 +5,25 @@
 
 .featured-image-wrapper__center {
   margin-left: 25px;
+  overflow: hidden;
+}
+
+.featured-image-zoom {
+  height: 720px;
+  position: relative;
+  overflow: hidden;
+  object-fit: none;
+  transition-property: visibility, opacity;
+  transform-style: ease;
+  transition-duration: 0.5s;
 }
 
 .featured-image {
+  position: absolute;
   height: 720px;
   object-fit: contain;
+  transition: all ease 0.5s;
+
 }
 
 .product-thumbnail img {

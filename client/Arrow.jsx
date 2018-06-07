@@ -15,7 +15,7 @@ class Arrow extends React.Component {
     if (this.props.active) {
       this.setState({
         style: {
-          animation: `2s ease-out infinite bounce-${this.props.direction}`
+          animation: `2s ease infinite bounce-${this.props.direction}`
         }
       });
     }
