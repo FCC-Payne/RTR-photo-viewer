@@ -30,7 +30,7 @@ class FeaturedZoom extends React.Component {
     });
   }
 
-  mouseLeave(event) {
+  mouseLeave() {
     this.props.hide();
   }
 

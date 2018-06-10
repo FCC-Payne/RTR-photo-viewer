@@ -2,7 +2,7 @@ import React from 'react';
 import Thumbnail from './Thumbnail.jsx';
 import Arrow from './Arrow.jsx';
 
-class Thumbnails extends React.Component{
+class Thumbnails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
