@@ -6,7 +6,6 @@ class Thumbnails extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      displayed: [],
       displayedIndices: [],
       nextActive: false,
       prevActive: false,
@@ -17,8 +16,7 @@ class Thumbnails extends React.Component{
   componentDidUpdate(prevProps) {
     if (this.props.photos !== prevProps.photos) {
       this.setState({
-        displayed: this.props.photos.slice(0, 3),
-        displayedIndices: [0, 3],
+        displayedIndices: [0, 2],
       }, this.activateArrows);
     }
   }
@@ -27,7 +25,7 @@ class Thumbnails extends React.Component{
     let next;
     let prev;
     this.state.displayedIndices[0] === 0 ? prev = false : prev = true;
-    this.state.displayedIndices[1] === this.props.photos.length ? next = false : next = true;
+    this.state.displayedIndices[1] === this.props.photos.length - 1 ? next = false : next = true;
     this.setState({
       nextActive: next,
       prevActive: prev,
@@ -43,9 +41,7 @@ class Thumbnails extends React.Component{
       indices[0] += 1;
       indices[1] += 1;
     }
-    let thumbnails = this.props.photos.slice(indices[0], indices[1]);
     this.setState({
-      displayed: thumbnails,
       displayedIndices: indices,
     }, this.activateArrows);
   }
@@ -56,8 +52,11 @@ class Thumbnails extends React.Component{
         <Arrow direction="prev" scroll={this.scroll} active={this.state.prevActive} />
         <div className="thumb-viewport">
           <div className="product-thumbnails">
-            {this.state.displayed.map((photo, key) => 
-              <Thumbnail clickHandler={this.props.changePhoto} key={key} photo={photo} />)}
+            {this.props.photos.map((photo, index) => {
+              let display;
+              index >= this.state.displayedIndices[0] && index <= this.state.displayedIndices[1] ? display = 'block' : display = 'none';
+              return <Thumbnail clickHandler={this.props.changePhoto} key={index} display={display} photo={photo} />;
+            })}
           </div>
         </div>
         <Arrow direction="next" scroll={this.scroll} active={this.state.nextActive} />
