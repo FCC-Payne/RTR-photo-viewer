@@ -16,7 +16,8 @@
 
 ## Usage
 
-Use `npm start` from the terminal to start the server with nodemon.
+Run `npm run react-dev` from the terminal to compile the necessary files.
+Run `npm start` from the terminal to start the server with nodemon.
 Access the page by visiting "localhost:3001" in your browser.
 
 ## Requirements
