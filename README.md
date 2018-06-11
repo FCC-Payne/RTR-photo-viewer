@@ -11,17 +11,23 @@
 
 ## Table of Contents
 
-1. [Usage](#Usage)
+1. [Development](#development)
 1. [Requirements](#requirements)
+1. [Usage](#Usage)
 
-## Usage
+## Development
+### Installing Dependencies
 
-Run `npm run react-dev` from the terminal to compile the necessary files.  
-Run `npm start` from the terminal to start the server with nodemon.  
-Access the page by visiting "localhost:3001" in your browser.  
+Run `npm install` from the root directory to install all dependencies.
 
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 10.3.0
+
+## Usage
+
+Run `npm run react-dev` from the root directory to compile the necessary files.  
+Run `npm start` from the root directory to start the server with nodemon.  
+Access the page by visiting "localhost:3001" in your browser.  
