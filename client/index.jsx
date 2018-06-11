@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 
   getPhotoUrls(imageId) {
-    axios.get(`http://localhost:3001/${imageId}`)
+    axios.get(`http://localhost:3001/${imageId}/photos`)
       .then(response => {
         this.setState({
           photoUrls: response.data,
@@ -26,7 +26,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getPhotoUrls(142);
+    this.getPhotoUrls(127);
   }
 
   changePhoto(url) {
