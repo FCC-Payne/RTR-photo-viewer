@@ -1,38 +1,33 @@
 # Run the Rentway Photo Viewer
 
-> Project description
+> A clone of the item photo and thumbnail display from Rent The Runway's product page.
 
 ## Related Projects
 
   - https://github.com/FCC-Payne/Form_Field_Anton
-  - https://github.com/RTR-review-component
-  - https://github.com/RTR-recommendation-carousel
+  - https://github.com/FCC-Payne/RTR-review-component
+  - https://github.com/FCC-Payne/RTR-recommendation-carousel
   - https://github.com/FCC-Payne/RTR-proxy-nick
 
 ## Table of Contents
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
 1. [Development](#development)
+1. [Requirements](#requirements)
+1. [Usage](#Usage)
 
-## Usage
+## Development
+### Installing Dependencies
 
-> Some usage instructions
+Run `npm install` from the root directory to install all dependencies.
 
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
-- Node 6.13.0
-- etc
+- Node 10.3.0
 
-## Development
+## Usage
 
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g webpack
-npm install
-```
+Run `npm run react-dev` from the root directory to compile the necessary files.  
+Run `npm start` from the root directory to start the server with nodemon.  
+Access the page by visiting "localhost:3001" in your browser.  
