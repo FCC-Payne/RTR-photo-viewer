@@ -7,5 +7,8 @@ node_modules/
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 public/bundle.js
 
-# Configuration file
+# Configuration
 config.js
+
+# Test Coverage
+coverage/
