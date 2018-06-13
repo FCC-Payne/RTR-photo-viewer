@@ -3,9 +3,9 @@ const helpers = require('../database/helpers.js');
 
 const app = express();
 
-app.use('/:id', express.static(__dirname + '/../public'));
+app.use('/:id/photo-viewer', express.static(__dirname + '/../public'));
 
-app.get('/:id/photos', (req, res) => {
+app.get('/:id/photos/photo-viewer', (req, res) => {
   helpers.getEndpoints(req.params.id, (err, data) => {
     if (err) {
       res.sendStatus(500);

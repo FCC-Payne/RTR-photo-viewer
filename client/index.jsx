@@ -23,7 +23,7 @@ class App extends React.Component {
 
 
   getPhotoUrls(imageId) {
-    axios.get(`http://localhost:3001/${imageId}/photos`)
+    axios.get(`http://localhost:3001/${imageId}/photos/photo-viewer`)
       .then(response => {
         this.setState({
           photoUrls: response.data,
