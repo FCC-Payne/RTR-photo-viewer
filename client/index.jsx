@@ -33,8 +33,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let path = document.location.pathname.slice(1, 4);
-    this.getPhotoUrls(path);
+    let path = document.location.pathname.split('/', 2);
+    this.getPhotoUrls(path[1]);
   }
 
   changePhoto(url) {
