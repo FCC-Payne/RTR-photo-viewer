@@ -1,4 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const FeaturedImgZoom = styled.img`
+  height: 720px;
+  position: relative;
+  overflow: hidden;
+  object-fit: none;
+  transition-property: visibility, opacity, object-position; 
+  transition-timing-function: ease-out;
+  transition-duration: 0.5s, 0.5s, 0.3s;
+`;
 
 class FeaturedZoom extends React.Component {
   constructor(props) {
@@ -57,7 +68,7 @@ class FeaturedZoom extends React.Component {
       visibility: this.props.visibility,
     };
     return(
-      <img 
+      <FeaturedImgZoom 
         className="featured-image-zoom"
         onMouseEnter={this.mouseEnter}
         onMouseLeave={this.props.hide}

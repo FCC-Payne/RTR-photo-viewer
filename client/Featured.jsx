@@ -1,6 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 import FeaturedZoom from './FeaturedZoom.jsx';
 import FeaturedStatic from './FeaturedStatic.jsx';
+
+const FeturedImgWrapperCenter = styled.div`
+  margin-left: 25px;
+  overflow: hidden;
+`;
 
 class Featured extends React.Component {
   constructor(props) {
@@ -36,11 +42,11 @@ class Featured extends React.Component {
 
   render() {
     return(
-      <div className="featured-image-wrapper">
-        <div className="featured-image-wrapper__center">
+      <div>
+        <FeturedImgWrapperCenter>
           <FeaturedStatic hide={this.showZoom} photo={this.props.photo} visibility={this.state.staticVisibility} opacity={this.state.staticOpacity} />
           <FeaturedZoom hide={this.hideZoom} photo={this.props.photo} visibility={this.state.zoomVisibility} opacity={this.state.zoomOpacity} />
-        </div>
+        </FeturedImgWrapperCenter>
       </div>
     );
   }
