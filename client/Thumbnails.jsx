@@ -48,17 +48,13 @@ class Thumbnails extends React.Component {
 
   render() {
     return(
-      <div className="thumbnails">
+      <div>
         <Arrow direction="prev" scroll={this.scroll} active={this.state.prevActive} />
-        <div className="thumb-viewport">
-          <div className="product-thumbnails">
-            {this.props.photos.map((photo, index) => {
-              let display;
-              index >= this.state.displayedIndices[0] && index <= this.state.displayedIndices[1] ? display = 'block' : display = 'none';
-              return <Thumbnail clickHandler={this.props.changePhoto} key={index} display={display} photo={photo} />;
-            })}
-          </div>
-        </div>
+        {this.props.photos.map((photo, index) => {
+          let display;
+          index >= this.state.displayedIndices[0] && index <= this.state.displayedIndices[1] ? display = 'block' : display = 'none';
+          return <Thumbnail clickHandler={this.props.changePhoto} key={index} display={display} photo={photo} />;
+        })}
         <Arrow direction="next" scroll={this.scroll} active={this.state.nextActive} />
       </div>
     );
