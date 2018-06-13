@@ -9,9 +9,7 @@ const ProductThumbnailImg = styled.img`
 `;
 
 const Thumbnail = props => (
-  <div>
-    <ProductThumbnailImg display={props.display} onClick={() => props.clickHandler(props.photo)} width="85" src={props.photo} />
-  </div>
+  <ProductThumbnailImg display={props.display} onClick={() => props.clickHandler(props.photo)} width="85" src={props.photo} />
 );
 
 export default Thumbnail;
