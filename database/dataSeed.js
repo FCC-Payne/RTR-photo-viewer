@@ -7,6 +7,7 @@ const connection = mysql.createConnection({
   database: 'rtrPhotoViewer',
 });
 
-for (let i = 100; i < 200; i += 1) {
-  connection.query(`INSERT INTO photos (id, picOne, picTwo, picThree, picFour) VALUES (${i}, '${i}-1.jpeg', '${i}-2.jpeg', '${i}-3.jpeg', '${i}-4.jpeg')`);
+for (let i = 1; i <= 100; i += 1) {
+  const imgFileName = i + 99;
+  connection.query(`INSERT INTO photos (id, picOne, picTwo, picThree, picFour) VALUES (${i}, '${imgFileName}-1.jpeg', '${imgFileName}-2.jpeg', '${imgFileName}-3.jpeg', '${imgFileName}-4.jpeg')`);
 }
