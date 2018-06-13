@@ -6,7 +6,6 @@ import Thumbnails from './Thumbnails.jsx';
 import Featured from './Featured.jsx';
 
 const ProductImages = styled.div`
-  width: 50%;
   display: flex;
 `;
 

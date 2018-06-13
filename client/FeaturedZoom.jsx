@@ -9,6 +9,9 @@ const FeaturedImgZoom = styled.img`
   transition-property: visibility, opacity, object-position; 
   transition-timing-function: ease-out;
   transition-duration: 0.5s, 0.5s, 0.3s;
+  object-position: ${props => props.objectPosition};
+  visibility: ${props => props.visibility};
+  opacity: ${props => props.opacity};
 `;
 
 class FeaturedZoom extends React.Component {
@@ -74,7 +77,9 @@ class FeaturedZoom extends React.Component {
         onMouseLeave={this.props.hide}
         onMouseMove={this.mouseMove}
         onWheel={this.wheel}
-        style={imgStyle}
+        objectPosition={this.state.objectPosition}
+        opacity={this.props.opacity}
+        visibility={this.props.visibility}
         srcSet={`${this.props.photo} 1080w`}
         sizes={`${this.state.width}px`}
       />
