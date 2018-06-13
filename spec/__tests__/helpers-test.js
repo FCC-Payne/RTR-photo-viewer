@@ -1,4 +1,4 @@
-const helpers = require('../database/helpers.js');
+const helpers = require('../../database/helpers.js');
 
 test('getEndpoints returns correct endpoints', done => {
   function callback(err, data) {
