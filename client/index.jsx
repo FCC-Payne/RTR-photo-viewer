@@ -1,13 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
-import styled from 'styled-components';
 import Thumbnails from './Thumbnails.jsx';
 import Featured from './Featured.jsx';
-
-const ProductImages = styled.div`
-  display: flex;
-`;
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +14,6 @@ class App extends React.Component {
     this.getPhotoUrls = this.getPhotoUrls.bind(this);
     this.changePhoto = this.changePhoto.bind(this);
   }
-
 
   getPhotoUrls(imageId) {
     axios.get(`http://localhost:3001/${imageId}/photos/photo-viewer`)
@@ -44,12 +38,12 @@ class App extends React.Component {
 
   render() {
     return(
-      <ProductImages>
+      <div className="product-images">
         <Thumbnails scroll={this.thumbnailScroll} changePhoto={this.changePhoto} photos={this.state.photoUrls} />
         <Featured photo={this.state.featuredPhotoUrl}/>
-      </ProductImages>
+      </div>
     );
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('photos'));
