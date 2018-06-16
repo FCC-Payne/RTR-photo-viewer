@@ -3,15 +3,17 @@ const config = require('../config');
 const AWS = require('aws-sdk');
 
 const s3 = new AWS.S3({
-  accessKeyId: config.awsAccessKey,
-  secretAccessKey: config.awsSecretKey,
+  accessKeyId: process.env.ACCESS_KEY,
+  secretAccessKey: process.env.SECRET_KEY,
   region: 'us-west-1',
 });
 
 const connection = mysql.createConnection({
-  user: 'nick',
-  password: config.dbPassword,
-  database: 'rtrPhotoViewer',
+  host: process.env.RDS_HOSTNAME,
+  port: process.env.RDS_PORT,
+  user: process.env.RDS_USERNAME,
+  password: process.env.RDS_PASSWORD,
+  database: process.env.RDS_DB_NAME,
 });
 
 exports.getEndpoints = (imageId, callback) => {

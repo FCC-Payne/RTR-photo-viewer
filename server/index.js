@@ -6,7 +6,7 @@ const app = express();
 app.use('/:id/photo-viewer', express.static('public/', { 
   setHeaders: function(res) {
     res.set({
-      'Access-Control-Allow-Origin': 'http://localhost:3000',
+      'Access-Control-Allow-Origin': '*',
     });
   }
 }));
@@ -21,7 +21,7 @@ app.get('/:id/photos/photo-viewer', (req, res) => {
           res.sendStatus(500);
         } else {
           res.set({
-            'Access-Control-Allow-Origin': 'http://localhost:3000',
+            'Access-Control-Allow-Origin': '*',
           });
           res.send(data);
         }
@@ -30,4 +30,4 @@ app.get('/:id/photos/photo-viewer', (req, res) => {
   });
 });
 
-app.listen(3001);
+app.listen(process.env.PORT);

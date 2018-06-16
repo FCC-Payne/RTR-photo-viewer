@@ -4,11 +4,5 @@
 ## NPM ##
 node_modules/
 
-# Compiled Dirs (http://nodejs.org/api/addons.html)
+## Compiled Dirs ##
 public/bundle.js
-
-# Configuration
-config.js
-
-# Test Coverage
-coverage/
