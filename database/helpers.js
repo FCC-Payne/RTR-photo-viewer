@@ -1,10 +1,9 @@
 const mysql = require('mysql');
-const config = require('../config');
 const AWS = require('aws-sdk');
 
 const s3 = new AWS.S3({
-  accessKeyId: process.env.ACCESS_KEY,
-  secretAccessKey: process.env.SECRET_KEY,
+  accessKeyId: process.env.AWS_ACCESS_KEY,
+  secretAccessKey: process.env.AWS_SECRET_KEY,
   region: 'us-west-1',
 });
 

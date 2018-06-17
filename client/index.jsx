@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 
   getPhotoUrls(imageId) {
-    axios.get(`/${imageId}/photos/photo-viewer`);
+    axios.get(`/${imageId}/photos/photo-viewer`)
       .then(response => {
         this.setState({
           photoUrls: response.data,
